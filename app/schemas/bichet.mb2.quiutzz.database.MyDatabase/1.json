@@ -1,0 +1,107 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "6d9b7a27d63031858f4e230502fd6b20",
+    "entities": [
+      {
+        "tableName": "Question",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Numero` INTEGER NOT NULL, `Intitule` TEXT, `réponse1` TEXT, `réponse2` TEXT, `réponse3` TEXT, `réponse4` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "uid",
+            "columnName": "uid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numero",
+            "columnName": "Numero",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "intitule",
+            "columnName": "Intitule",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "réponse1",
+            "columnName": "réponse1",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "réponse2",
+            "columnName": "réponse2",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "réponse3",
+            "columnName": "réponse3",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "réponse4",
+            "columnName": "réponse4",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "uid"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "InfoJoueur",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Name` TEXT, `Niveau` TEXT, `Score` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "Name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "difficultee",
+            "columnName": "Niveau",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "score",
+            "columnName": "Score",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"6d9b7a27d63031858f4e230502fd6b20\")"
+    ]
+  }
+}

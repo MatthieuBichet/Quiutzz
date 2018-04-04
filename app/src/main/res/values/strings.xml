@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">QuIUTzz</string>
+    <string name="action_settings">Settings</string>
+    <string name="str_chp_saisie">Entrez Votre Nom..</string>
+    <string name="btn_envoyer">Start</string>
+    <string name="title_activity_affichage_message">AffichageMessage</string>
+    <string name="title_activity_ecran_quizz">EcranQuizz</string>
+    <string name="nom">Nom</string>
+    <string name="question">Intitulé Question</string>
+    <string name="rep1">Intitulé Réponse 1</string>
+    <string name="rep2">Intitulé Réponse 2</string>
+    <string name="rep3">Intitulé Réponse 3</string>
+    <string name="rep4">Intitulé Réponse 4</string>
+    <string name="numQuest">Question # / #</string>
+    <string name="addQ">Ajouter une Question</string>
+    <string name="sendQ">Ajouter la question</string>
+    <string name="addQname">Nom de la question</string>
+    <string name="addqr1">Bonne réponse / Réponse 1</string>
+    <string name="addqr2">Réponse 2</string>
+    <string name="addqr3">Réponse 3</string>
+    <string name="addqr4">Réponse 4</string>
+</resources>
