@@ -3,6 +3,7 @@ package bichet.mb2.quiutzz;
 import android.app.Activity;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,9 +31,12 @@ public class MainActivity extends AppCompatActivity {
     public static MainActivity INSTANCE;
     private MyDatabase db; //Variable database
     String q,rep1,rep2,rep3,rep4;
+
+
     public static MainActivity get() {
         return INSTANCE;
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
     //Initialisation de la base de donnée (database)
          db = Room.databaseBuilder(getApplicationContext(), MyDatabase.class, "database").build();
         INSTANCE = this;
+
+
+
 
 
         Button bouton =(Button) findViewById(R.id.Start); //Ajout de l'id Start au .C
@@ -121,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             //Utilisation de la tache pour modifier la database (récupération des infos de questions
             Question question = new Question();
-            question.setNumero(qcount);
+            question.setNumero(1);
             question.setIntitule(q);
             question.setRéponse1(rep1);
             question.setRéponse2(rep2);
@@ -130,5 +138,16 @@ public class MainActivity extends AppCompatActivity {
             db.daoQuestion().insertQuestion(question);
             }
         }).start();//Fin de la tâche parallèle
+        toastT(1);
         }
+    public void toastT (int a)
+    {
+        Context context = getApplicationContext();
+        CharSequence text = "Hello toast! " + a;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
 }

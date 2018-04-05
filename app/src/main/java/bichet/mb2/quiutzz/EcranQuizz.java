@@ -1,6 +1,7 @@
 package bichet.mb2.quiutzz;
 
 import android.arch.persistence.room.Room;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,11 @@ import static bichet.mb2.quiutzz.MainActivity.get;
 
 public class EcranQuizz extends AppCompatActivity {
 
+    Button boutonrep1;
+    Button boutonrep2;
+    Button boutonrep3;
+    Button boutonrep4;
+    public String Rep1, Rep2, Rep3, Rep4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +42,18 @@ public class EcranQuizz extends AppCompatActivity {
         TextView textView = new TextView(this);
         textView.setTextSize(20);
         textView.setText(message);
-        //List<Joueur> joueur1 = new ArrayList<>();
-        Button boutonrep1 = (Button) findViewById(R.id.button);
-        Button boutonrep2 = (Button) findViewById(R.id.button2);
-        Button boutonrep3 = (Button) findViewById(R.id.button3);
-        Button boutonrep4 = (Button) findViewById(R.id.button4);
+        setContentView(R.layout.activity_ecran_quizz);
+        boutonrep1   =  findViewById(R.id.button);
+        boutonrep2  =  findViewById(R.id.button2);
+        boutonrep3   =  findViewById(R.id.button3);
+        boutonrep4  =  findViewById(R.id.button4);
+
+
+        initB(message);
+        loadQ(1);
+        get().toastT(2);
+
+
         //Button bouton =(Button) findViewById(R.id.Start); //Ajout de l'id Start au .C
 /*définir le layout activite_affich_message comme
 étant le layout de l’activité*/
@@ -65,16 +79,41 @@ public class EcranQuizz extends AppCompatActivity {
     }
     public void initB (final String message)
     {
+
         new Thread (new Runnable(){
-            public void run (){
+            public void run () {
                 Joueur joueur1 = new Joueur();
                 joueur1.setName(message);
-                get().getDB().daoQuestion().updateJoueur(joueur1);
-                List<Question> questions = MainActivity.get().getDB().daoQuestion().getAllquestion();
-
-
+                get().getDB().daoQuestion().insertJoueur(joueur1);
             }
         }).start();
+        get().toastT(3);
     }
+
+    public void loadQ ( final int num)
+    {
+        new Thread (new Runnable(){
+            public void run (){
+
+                //List<Question> questionList = MainActivity.get().getDB().daoQuestion().getAllquestion();
+                Question question = get().getDB().daoQuestion().findByNumber(num);
+                //=question.getIntitule()
+                Rep1 = question.getRéponse1();
+                Rep2 = question.getRéponse2();
+                Rep3 = question.getRéponse3();
+                Rep4 = question.getRéponse4();
+            }
+        }).start();
+        get().toastT(4);
+    }
+    public void Actu (View view) {
+            boutonrep1.setText(Rep1);
+            boutonrep2.setText(Rep2);
+            boutonrep3.setText(Rep3);
+            boutonrep4.setText(Rep4);
+            setContentView(R.layout.content_ecran_quizz);
+        }
+
+
 
 }

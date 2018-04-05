@@ -18,8 +18,8 @@ public interface DaoQuestion {
     @Query("SELECT * FROM question")
     List<Question> getAllquestion();
 
-    @Query("SELECT * FROM question")
-    String getQuestion();
+    //@Query("SELECT * FROM question")
+    //Question getQuestion();
 
     @Query("SELECT * FROM infojoueur")
     List<Joueur> getAlljoueur();
@@ -35,7 +35,8 @@ public interface DaoQuestion {
     void insertQuestion(Question question);
     @Insert
     void insertAllJoueur(List<Joueur> joueurs);
-
+    @Insert
+    void insertJoueur(Joueur joueur);
     @Update
     void updateJoueur(Joueur... joueurs);
     @Update
