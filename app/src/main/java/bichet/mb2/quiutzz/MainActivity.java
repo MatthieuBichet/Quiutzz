@@ -43,18 +43,18 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     //Initialisation de la base de donnée (database)
          db = Room.databaseBuilder(getApplicationContext(), MyDatabase.class, "database")
-                 .allowMainThreadQueries()
-                 .fallbackToDestructiveMigration()
+                 .allowMainThreadQueries()//permet de faire des appels de base de donnée dans la tache UI (déconseillé mais évite les codes de taches)
+                 .fallbackToDestructiveMigration() //détruit la base de donné lorsque cette dernière change (class question ou joueur qui change d'argument par ex)
                  .build();
         INSTANCE = this;
 
 
         // TODO: 11/04/2018 Ajouter un affichage en RecyclerView de la liste des questions via un boutton (1h/1h30) + Edition des question / suppression d'une question au choix (1h)
-        Button bouton =(Button) findViewById(R.id.Start); //Ajout de l'id Start au .C
        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //lancement de l'activitée add_question
                 startActivity(new Intent(MainActivity.this, Add_question.class));
             }
         });
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public MyDatabase getDB() { // Accès public de la base de donnée
         return db;
-    }
+    } //fonction permettant de récupérer la base de donnée de manière publique ce qui évite de faire plusieurs déclarations de database
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         //joueur1.setName(message);
         //db.daoQuestion().updateJoueur(joueur1);
         intent.putExtra(MESSAGE_SUP,message);
+        //lancement de l'activitée Quizz et récupération du nom du joueur
         startActivity(intent);
     }
    /* public void AddQuestion (View view)

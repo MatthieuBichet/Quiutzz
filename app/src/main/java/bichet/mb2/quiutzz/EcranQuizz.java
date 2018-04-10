@@ -56,30 +56,30 @@ public class EcranQuizz extends AppCompatActivity {
 /*définition de la barre d’action */
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //définition des pointeurs sur id des boutons
         bt1 = findViewById(R.id.button);
         bt2 = findViewById(R.id.button2);
         bt3 = findViewById(R.id.button3);
         bt4 = findViewById(R.id.button4);
+        //recherche de la première question dans la base de donnée
         question = get().getDB().daoQuestion().findByNumber(1);
+        //récupération des paramètres de la questions (intitulé, réponses etc ..)
         rep1 = question.getRéponse1();
         rep2 = question.getRéponse2();
         rep3 = question.getRéponse3();
         rep4 = question.getRéponse4();
         intitulé = question.getIntitule();
         //context = getApplicationContext();
+        //récupèration de toutes les questions afin de les compter
         qu = get().getDB().daoQuestion().getAllquestion();
         cb = qu.size();
+        //création du média player servant à la diffusion du son
         mpt = MediaPlayer.create(this, R.raw.bonne);
         mpf = MediaPlayer.create(this, R.raw.mauvaise);
+        //fonction d'affichage du changement des textes dans les boutons et du numéro de question
         setText();
-       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
        // bt1.setOnClickListener(new View.OnClickListener(){
        //     @Override
@@ -96,12 +96,13 @@ public class EcranQuizz extends AppCompatActivity {
                 joueur1.setName(message);
                 get().getDB().daoQuestion().updateJoueur(joueur1);
                 List<Question> questions = MainActivity.get().getDB().daoQuestion().getAllquestion();
-
+// TODO: 11/04/2018 Mettre en place des informations joueur relatives au score, aux nombre de parties jouées etc
 
             }
         }).start();
     }
 */
+
     public void setText()
     {
 
@@ -136,7 +137,7 @@ public class EcranQuizz extends AppCompatActivity {
         }
 
 
-
+            //la condition permet de vérifier si il  reste des questions non traitées
             if (cb > etat) {
                 etat++;
                 question = get().getDB().daoQuestion().findByNumber(etat);
@@ -148,6 +149,7 @@ public class EcranQuizz extends AppCompatActivity {
                 setText();
 
             } else {
+            //Si il ne rest plus de questions, retour à l'activitée principale
                 startActivity(new Intent(EcranQuizz.this, MainActivity.class));
             }
 
