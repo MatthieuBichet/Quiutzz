@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         INSTANCE = this;
 
 
-
+        // TODO: 11/04/2018 Ajouter un affichage en RecyclerView de la liste des questions via un boutton (1h/1h30) + Edition des question / suppression d'une question au choix (1h)
         Button bouton =(Button) findViewById(R.id.Start); //Ajout de l'id Start au .C
        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

@@ -104,7 +104,7 @@ public class Add_question extends AppCompatActivity {
        /* delete.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-
+            // TODO: 11/04/2018  Ajouter une suppression logicielle de la liste des questions
                 startActivity(new Intent(Add_question.this, MainActivity.class));
             }
         });*/

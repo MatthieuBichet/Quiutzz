@@ -83,7 +83,7 @@ public class EcranQuizz extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
        // bt1.setOnClickListener(new View.OnClickListener(){
        //     @Override
-
+        
       //  });
 
 
@@ -113,6 +113,8 @@ public class EcranQuizz extends AppCompatActivity {
         ((TextView)findViewById(R.id.questioncb)).setText("Question "+ etat+"/ " + cb);
 
     }
+
+    // TODO: 11/04/2018 Mettre en place un aléatoire dans l'ordre des question / disposition des questions (Collection.shuffle) 
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button:
