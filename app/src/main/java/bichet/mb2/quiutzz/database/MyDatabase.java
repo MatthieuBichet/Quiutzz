@@ -9,7 +9,7 @@ import android.content.Context;
  * Created by MAURI5 on 30/03/2018.
  */
 
-@Database(entities = {Question.class,Joueur.class}, version = 1)
+@Database(entities = {Question.class,Joueur.class}, version = 2)
 public abstract class MyDatabase extends RoomDatabase {
     public abstract DaoQuestion daoQuestion();
 

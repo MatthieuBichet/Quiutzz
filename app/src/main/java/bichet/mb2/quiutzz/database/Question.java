@@ -10,11 +10,19 @@ import android.arch.persistence.room.PrimaryKey;
 
 @Entity (tableName = "Question")
 public class Question {
+    public Question(int numero ,String intitule, String réponse1, String réponse2, String réponse3, String réponse4) {
+        this.numero = numero;
+        this.intitule = intitule;
+        this.réponse1 = réponse1;
+        this.réponse2 = réponse2;
+        this.réponse3 = réponse3;
+        this.réponse4 = réponse4;
+    }
 
     @PrimaryKey(autoGenerate = true)
     private int uid;
 
-    @ColumnInfo(name = "Numero")
+    @ColumnInfo(name = "numero")
     private int numero;
 
     @ColumnInfo(name = "Intitule")
@@ -40,13 +48,6 @@ public class Question {
         this.uid = uid;
     }
 
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
 
     public String getIntitule() {
         return intitule;
@@ -87,6 +88,11 @@ public class Question {
     public void setRéponse1(String réponse1) {
         this.réponse1 = réponse1;
     }
+
+    public int getNumero() {return numero;}
+
+    public void setNumero(int numero) {this.numero = numero;}
+
 
 
     // getters and setters

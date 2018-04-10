@@ -5,6 +5,8 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -40,19 +42,22 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     //Initialisation de la base de donnée (database)
-         db = Room.databaseBuilder(getApplicationContext(), MyDatabase.class, "database").build();
+         db = Room.databaseBuilder(getApplicationContext(), MyDatabase.class, "database")
+                 .allowMainThreadQueries()
+                 .fallbackToDestructiveMigration()
+                 .build();
         INSTANCE = this;
 
 
+
         Button bouton =(Button) findViewById(R.id.Start); //Ajout de l'id Start au .C
-      /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivity(new Intent(MainActivity.this, Add_question.class));
             }
-        });*/
+        });
 
     }
     public MyDatabase getDB() { // Accès public de la base de donnée
@@ -93,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(MESSAGE_SUP,message);
         startActivity(intent);
     }
-    public void AddQuestion (View view)
+   /* public void AddQuestion (View view)
     {
         new Thread (new Runnable() { //Création d'une tache afin de pouvoir utiliser la database
             public void run(){ //lancement de la tache
@@ -130,5 +135,6 @@ public class MainActivity extends AppCompatActivity {
             db.daoQuestion().insertQuestion(question);
             }
         }).start();//Fin de la tâche parallèle
-        }
+        }*/
+
 }

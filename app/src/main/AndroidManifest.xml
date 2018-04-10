@@ -28,6 +28,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="bichet.mb2.quiutzz.MainActivity" />
         </activity>
+        <activity android:name=".Add_question" />
     </application>
 
 </manifest>

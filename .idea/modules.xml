@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://C:\Users\TEMP.GEII2.010\Downloads\Quiutzz-database\QuIUTzz2.iml" filepath="C:\Users\TEMP.GEII2.010\Downloads\Quiutzz-database\QuIUTzz2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Quiutzz-database.iml" filepath="$PROJECT_DIR$/Quiutzz-database.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Quiutzz.iml" filepath="$PROJECT_DIR$/Quiutzz.iml" />
+      <module fileurl="file://C:\Users\MAURI5\Desktop\Quiutzz Final\Quiutzz\Quiutzz-database.iml" filepath="C:\Users\MAURI5\Desktop\Quiutzz Final\Quiutzz\Quiutzz-database.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\MAURI5\Desktop\Quiutzz Final\Quiutzz\app\app.iml" filepath="C:\Users\MAURI5\Desktop\Quiutzz Final\Quiutzz\app\app.iml" />
       <module fileurl="file://C:\Users\TEMP.GEII2.010\Downloads\Quiutzz-database\app\app.iml" filepath="C:\Users\TEMP.GEII2.010\Downloads\Quiutzz-database\app\app.iml" />
     </modules>
   </component>

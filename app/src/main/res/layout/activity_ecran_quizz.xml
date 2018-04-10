@@ -17,7 +17,8 @@
             android:layout_height="match_parent"
             android:text="@string/numQuest"
             android:textSize="30dp"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:id="@+id/questioncb"/>
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"

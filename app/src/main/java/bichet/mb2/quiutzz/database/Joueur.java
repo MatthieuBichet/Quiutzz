@@ -9,6 +9,13 @@ import android.arch.persistence.room.PrimaryKey;
  */
 @Entity (tableName = "InfoJoueur")
 public class Joueur {
+
+    public Joueur(String name, String difficultee, int score) {
+        this.name = name;
+        this.difficultee = difficultee;
+        this.score = score;
+    }
+
     @PrimaryKey(autoGenerate = true)
     private int id;
 

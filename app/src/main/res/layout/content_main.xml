@@ -27,54 +27,6 @@
         android:onClick="Envoi"
         android:id="@+id/Start"
         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Start"
-        android:text="@string/addQ"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:id="@+id/addq"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/addq"
-        android:hint="@string/addQname"
-        android:id="@+id/addqn"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/addqn"
-        android:hint="@string/addqr1"
-        android:id="@+id/r1"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/r1"
-        android:hint="@string/addqr2"
-        android:id="@+id/r2"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/r2"
-        android:hint="@string/addqr3"
-        android:id="@+id/r3"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/r3"
-        android:hint="@string/addqr4"
-        android:id="@+id/r4"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/r4"
-        android:text="@string/sendQ"
-        android:id="@+id/addqs"
-        android:onClick="AddQuestion"
-        />
 
 </RelativeLayout>
